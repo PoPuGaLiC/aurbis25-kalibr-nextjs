@@ -1,6 +1,10 @@
 import Image from "next/image"
 import Link from 'next/link'
  
+export const metadata = {
+  title: "Categories"
+}
+
 async function getCategories() {
   const res = await fetch(`http://localhost:1337/api/categories`, { cache: 'no-store' })
   const categories = await res.json()
