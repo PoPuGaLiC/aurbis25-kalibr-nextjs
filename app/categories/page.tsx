@@ -19,20 +19,23 @@ export default async function Categories() {
       <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
 
         <ul>
-          {/* <pre>{JSON.stringify(categories, null, '    ')}</pre> */}
+          
 
-          {categories.data.map((category: any) => {
+          {categories.data.map((category: any, index: number) => {
             {
-              if (category.slug == category.category) {
-                return (<li key={category.slug}><b><Link href={"/categories/subcategory/" + category.category + "/"}>{category.title}</Link></b></li>)
+              if (category.Slug == category.Category) {
+                return (<li key={category.Slug || `category_${index}`}><b><Link href={"/categories/subcategory/" + category.Category + "/"}>{category.Title}</Link></b></li>)
               } else {
-                return (<li key={category.slug}><Link href={"/categories/" + category.slug}>{category.title}</Link></li>)
+                return (<li key={category.Slug || `category_${index}`}><Link href={"/categories/" + category.Slug}>{category.Title}</Link></li>)
               }
 
             }
           })}
+          
         </ul>
-       
+          <hr />
+          <pre>{JSON.stringify(categories, null, '    ')}</pre>
+
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
 
