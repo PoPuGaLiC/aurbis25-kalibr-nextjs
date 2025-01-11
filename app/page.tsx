@@ -1,9 +1,9 @@
-import Image from "next/image";
-
+import Image from "next/image"
+// import background from  "./background.jpg"
 export default function Home() {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
+    <div >
+      <main className="flex flex-col gap-8 ">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -48,6 +48,85 @@ export default function Home() {
             Read our docs
           </a>
         </div>
+
+        <div className="small w-100 overflow-hidden">
+          <div className="container">
+            <div className="row">
+              <div className="col-md-6 col-lg-3 border-end">
+                <div className="d-flex">
+
+                  <div className="col-md-9 flex-fill">
+                    {/* <h3 className="h5 my-2">Delivery Service</h3> */}
+                    <p className="text-lg">Благодаря собственному производству,
+                      <b> мы контролируем и поддерживаем качество
+                      на каждом этапе изготовления продукции.</b></p>
+                  </div>
+                </div>
+              </div>
+              <div className="col-md-9 col-lg-6 border-end">
+                <div className="d-flex">
+
+                  <div className="col-md-9 flex-fill">
+                    {/* <h3 className="h5 my-2">Independently Checked</h3> */}
+                    <p className="text-lg"><b>Ассортимент нашей продукции включает в себя весь спектр изделий, которые необходимы для организации паркового или дворового пространства:</b>
+                      скамейки, урны, вазоны, столы, мангалы и поленницы, уличные трибуны, качели, декоративные панно, указатели, стенды, парковки для велосипедов, оборудование для Workout, оборудование для выгула собак и многое другое.</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="col-md-6 col-lg-3" >
+                <div className="d-flex">
+
+                  <div className="col-md-9 flex-fill">
+                    {/* <h3 className="h5 my-2">Online Support</h3> */}
+                    <p className="text-lg">Наличие собственных производственных мощностей
+                      позволяет предложить Вам
+                      <b> производство по индивидуальным проектам!</b></p>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div className="flex border-top justify-content-center " >
+          <div className="w-screen backdrop-blur-sm bg-black/30 absolute z-10 h-48">
+
+          </div>
+          <Image
+            className="w-screen absolute z-0 h-48 object-cover"
+            src="/background.jpg"
+            alt="Bench background"
+            width={180}
+            height={38}
+            priority
+          />
+          <div className="flex flex-column z-10 justify-content-center gap-4 py-2 my-3.5" >
+            <div className="flex flex-column z-10 justify-content-center z-10 text-center">
+              <h3 className="fs-2 fw-light z-10 text-white">Stay in touch with our <span className="fw-bold">
+                monthly and free</span> newsletter!
+              </h3></div>
+            <div className="flex flex-column z-10 justify-content-center text-center">
+              <div className="row">
+                <div className="grouped-inputs border bg-light p-2">
+                  <div className="row">
+                    <div className="col">
+                      <form className="form-floating">
+                        <input type="email" className="form-control p-3" id="floatingInput" placeholder="name@example.com" />
+                        <label>Email address</label>
+                      </form>
+                    </div>
+                    <div className="z-10 col-auto">
+                      <a href="#" className="btn btn-dark py-3 px-5 z-10">Subscribe</a>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
