@@ -12,7 +12,14 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      gridTemplateColumns: {
+        'autofit': 'repeat(auto-fit, minmax(50px, 400px))',
+
+      },
     },
+    
+      
+    
   },
   plugins: [],
 } satisfies Config;

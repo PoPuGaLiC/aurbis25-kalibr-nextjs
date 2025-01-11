@@ -1,9 +1,18 @@
 import Image from "next/image"
 // import background from  "./background.jpg"
-export default function Home() {
+async function getPageData() {
+  const res = await fetch(`http://localhost:1337/api/partnership-section?populate[0]=Cards.Point.Image&populate[1]=Heading`, { cache: 'no-store' })
+  const data = await res.json()
+
+  return data
+}
+export default async function Home() {
+
+ 
+  const category = await getPageData()
   return (
     <div >
-      <main className="flex flex-col gap-8 ">
+      <main className="flex  flex-col gap-8 ">
         <Image
           className="dark:invert"
           src="/next.svg"
@@ -49,6 +58,168 @@ export default function Home() {
           </a>
         </div>
 
+        <aside id="gallery" className="grid grid-cols-autofit self-center justify-center w-full lg:xl:px-[5%]  xl:2xl:px-[10%] 2xl:max-[6000px]:px-[15%]" data-featherlight-gallery
+          data-featherlight-filter="a">
+          <a href="images/gallery-images/gallery-image-5.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.9s">
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Частных клиентов</span>
+            </div>
+
+            <Image
+              src="/images/cottage.jpg" alt="Landing Page"
+              className="h-full w-full"
+              width={180}
+              height={38}
+            />
+
+          </a>
+          <a href="images/gallery-images/gallery-image-4.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="1.1s">
+
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Застройщиков и предприятия ЖЭК</span>
+            </div>
+            {/* <span className="absolute bottom-4 right-4 [text-shadow:_0_4px_4px_rgb(0_0_0_/_1)] text-2xl text-amber-700 text-end font-medium  z-20">Застройщиков и предприятия ЖЭК</span> */}
+            <Image
+              src="/images/white-plan.png" alt="Landing Page"
+              className="h-full w-full"
+              width={180}
+              height={38}
+            />
+
+          </a>
+
+          <a href="images/gallery-images/gallery-image-3.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.5s">
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Дилеров</span>
+            </div>
+            {/* <span className="absolute bottom-4 right-4  [text-shadow:_0_4px_4px_rgb(0_0_0_/_1)] text-2xl text-amber-700 text-end  font-medium  z-20">Дилеров</span> */}
+            <Image
+              src="/images/partner.jpg" alt="Landing Page"
+              className="h-full w-full"
+              width={180}
+              height={38}
+            />
+
+          </a>
+
+          <a href="images/gallery-images/gallery-image-2.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.3s">
+
+
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Ландшафтных архитекторов</span>
+            </div>
+            <Image
+              src="/images/green-plan.jpg" alt="Landing Page"
+              className="h-full w-full z-0"
+              width={180}
+              height={38}
+            />
+          </a>
+          <a href="images/gallery-images/gallery-image-1.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.1s">
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Государственные учреждения и муниципалитеты</span>
+            </div>
+            <Image
+              className="h-full w-full"
+              src="/images/goverment.jpg" alt="Landing Page"
+              width={180}
+              height={38}
+            />
+          </a>
+          <div className="h-full w-auto flex flex-col justify-between">
+            <span className="text-lg p-4">Мы рады сотрудничеству и готовы предложить особые условия для вас</span>
+            {/* <button className="bg-amber-700 text-white font-semibold p-4 self-end text-lg">Связаться</button> */}
+            <a href="#" className=" border-amber-700 border-4 border-4 border-solid py-3 px-5 z-10 self-end text-lg font-medium no-underline">Связаться</a>
+          </div>
+
+        </aside>
+
+        <aside id="gallery" className="grid grid-cols-autofit self-center justify-center w-full lg:xl:px-[5%]  xl:2xl:px-[10%] 2xl:max-[6000px]:px-[15%]" data-featherlight-gallery
+          data-featherlight-filter="a">
+          <a href="images/gallery-images/gallery-image-5.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.9s">
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Частных клиентов</span>
+            </div>
+
+            <Image
+              src="/images/cottage.jpg" alt="Landing Page"
+              className="h-full w-full"
+              width={180}
+              height={38}
+            />
+
+          </a>
+          <a href="images/gallery-images/gallery-image-4.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="1.1s">
+
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Застройщиков и предприятия ЖЭК</span>
+            </div>
+            {/* <span className="absolute bottom-4 right-4 [text-shadow:_0_4px_4px_rgb(0_0_0_/_1)] text-2xl text-amber-700 text-end font-medium  z-20">Застройщиков и предприятия ЖЭК</span> */}
+            <Image
+              src="/images/white-plan.png" alt="Landing Page"
+              className="h-full w-full"
+              width={180}
+              height={38}
+            />
+
+          </a>
+
+          <a href="images/gallery-images/gallery-image-3.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.5s">
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Дилеров</span>
+            </div>
+            {/* <span className="absolute bottom-4 right-4  [text-shadow:_0_4px_4px_rgb(0_0_0_/_1)] text-2xl text-amber-700 text-end  font-medium  z-20">Дилеров</span> */}
+            <Image
+              src="/images/partner.jpg" alt="Landing Page"
+              className="h-full w-full"
+              width={180}
+              height={38}
+            />
+
+          </a>
+
+          <a href="images/gallery-images/gallery-image-2.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.3s">
+
+
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Ландшафтных архитекторов</span>
+            </div>
+            <Image
+              src="/images/green-plan.jpg" alt="Landing Page"
+              className="h-full w-full z-0"
+              width={180}
+              height={38}
+            />
+          </a>
+          <a href="images/gallery-images/gallery-image-1.jpg" data-featherlight="image" className="relative"
+            data-wow-delay="0.1s">
+            <div className="absolute flex bottom-0 right-0 p-2 bg-white/75 justify-end items-center w-full h-18  z-10">
+              <span className=" text-2xl text-amber-700  text-end font-medium  z-20">Государственные учреждения и муниципалитеты</span>
+            </div>
+            <Image
+              className="h-full w-full"
+              src="/images/goverment.jpg" alt="Landing Page"
+              width={180}
+              height={38}
+            />
+          </a>
+          <div className="h-full w-auto flex flex-col justify-between">
+            <span className="text-lg p-4">Мы рады сотрудничеству и готовы предложить особые условия для вас</span>
+            {/* <button className="bg-amber-700 text-white font-semibold p-4 self-end text-lg">Связаться</button> */}
+            <a href="#" className=" border-amber-700 border-4 border-4 border-solid py-3 px-5 z-10 self-end text-lg font-medium no-underline">Связаться</a>
+          </div>
+
+        </aside>
+
         <div className="small w-100 overflow-hidden">
           <div className="container">
             <div className="row">
@@ -59,7 +230,7 @@ export default function Home() {
                     {/* <h3 className="h5 my-2">Delivery Service</h3> */}
                     <p className="text-lg">Благодаря собственному производству,
                       <b> мы контролируем и поддерживаем качество
-                      на каждом этапе изготовления продукции.</b></p>
+                        на каждом этапе изготовления продукции.</b></p>
                   </div>
                 </div>
               </div>
@@ -118,7 +289,7 @@ export default function Home() {
                       </form>
                     </div>
                     <div className="z-10 col-auto">
-                      <a href="#" className="btn btn-dark py-3 px-5 z-10">Subscribe</a>
+                      <a href="#" className="btn btn-dark py-3 px-5 z-10 text-lg">Subscribe</a>
                     </div>
                   </div>
                 </div>
