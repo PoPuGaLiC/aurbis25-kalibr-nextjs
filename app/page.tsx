@@ -1,3 +1,4 @@
+import Header from "@/components/header"
 import Image from "next/image"
 // import background from  "./background.jpg"
 async function getPageData() {
@@ -17,8 +18,9 @@ export default async function Home() {
 
   const pageData = await getPageData()
   return (
-    <div >
-      <main className="flex  flex-col gap-8 ">
+    <div>
+      <Header/>
+      <main className="flex  py-16 flex-col gap-8 ">
 
 
         <h1 className="self-center" >{pageData.data.Heading.Caption}</h1>
