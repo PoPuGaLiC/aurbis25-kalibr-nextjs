@@ -148,14 +148,7 @@ export default async function Home() {
             </div>
           </div>
         </div>
-<Image
-               className="size-full object-cover"
-                          aria-hidden
-                          src="/images/bench-2.jpg"
-                          alt="File icon"
-                          width={16}
-                          height={16}
-                        />
+
       </main>
       <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
         <a
