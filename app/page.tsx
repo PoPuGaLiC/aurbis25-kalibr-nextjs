@@ -2,9 +2,13 @@
 import Header from "@/components/header"
 import Carousel from "@/components/carousel"
 import Image from "next/image"
+import ProductsCarousel from "@/components/productsCarousel"
+import Categories from "@/components/categories"
+
 // import background from  "./background.jpg"
 async function getPageData() {
-  const res = await fetch(`http://localhost:1337/api/partnership-section?populate[0]=Cards&populate[1]=Heading&populate[2]=Cards.Point&populate[3]=Cards.Point.Image&populate[4]=Cards.Actions`, { cache: 'no-store' })
+  // const res = await fetch(`http://localhost:1337/api/partnership-section?populate[0]=Cards&populate[1]=Heading&populate[2]=Cards.Point&populate[3]=Cards.Point.Image&populate[4]=Cards.Actions`, { cache: 'no-store' })
+  const res = await fetch(` http://localhost:1337/api/partnership-section?populate[0]=Cards&populate[1]=Heading&populate[2]=Cards.Heading&populate[3]=Cards.Actions`, { cache: 'no-store' })
   const data = await res.json()
 
   return data
@@ -22,13 +26,43 @@ export default async function Home() {
   return (
     <div>
       <Header />
-      <main className="flex  py-16 flex-col gap-8 ">
-      <Carousel />
-      
+      <main className="flex justify-center justify-items-center items-center  py-16 flex-col gap-8 ">
+        <Categories/>
+        <div className="flex flex-col  items-center justify-center text-center gap-4 ">
+          <div className="self-start p-2  text-7xl font-medium ">Заголовок</div>
+        <span className=" text-2xl self-start text-start  p-2 w-3/4 ">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum non nunc faucibus, iaculis enim sed, mattis mi. Aliquam ullamcorper porttitor mauris vitae rutrum. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Cras efficitur, est at mollis euismod, orci leo consequat nulla, in convallis tortor magna vitae odio. </span>
+          <div className="flex gap-4">
+            <div  className="relative">
+              <div className="absolute flex  bottom-0 right-0 bg-black/75 justify-center items-center w-full h-18  z-10">
+                <span className=" text-xl text-white self-center text-left z-20  p-2 ">Duis nibh dui, lobortis ut nisl id, blandit consectetur nisi. Pellentesque iaculis dapibus elit et lacinia. </span>
+              </div>
+              <Image
+                src="/images/bench-2.jpg" alt="img"
+                className="object-cover z-0"
+                width={300}
+                height={300}
+              />
+            </div>
+            <div>
+              <Image
+                src="/images/bench-2.jpg" alt="img"
+                className="object-cover"
+                width={300}
+                height={300}
+              />
+            </div>
+          </div>
+
+          <a href="#" className="btn btn-dark py-2 px-5 z-10 text-lg  w-fit h-fit">Посмотреть все работы</a>
+        </div>
+
+        <ProductsCarousel />
+        <Carousel />
+
         <h1 className="self-center" >{pageData.data.Heading.Caption}</h1>
         <aside id="gallery" className="grid grid-cols-autofit self-center justify-center w-full lg:xl:px-[5%]  xl:2xl:px-[10%] 2xl:max-[6000px]:px-[15%]" data-featherlight-gallery
           data-featherlight-filter="a">
-          {pageData.data.Cards.map(async (el: any) => {
+          {/* {pageData.data.Cards.map(async (el: any) => {
             if (el.Actions[0].Enabled) {
               return <a key={el.Key} href={"partnership" + el.Actions[0].URL} className="relative"
                 data-wow-delay="0.9s">
@@ -60,7 +94,7 @@ export default async function Home() {
               </div>
             }
 
-          })}
+          })} */}
 
           <div className="h-full w-auto flex flex-col justify-between">
             <span className="text-lg p-4">{pageData.data.Content}</span>
