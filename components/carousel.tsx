@@ -6,7 +6,7 @@ import Link from "next/link";
 
 export default function Carousel() {
   return (
-
+    
     <div id="horizontal-thumbnails" data-carousel='{ "loadingClasses": "opacity-0" }' className=" h-[600px] relative w-full lg:xl:px-[5%]  xl:2xl:px-[10%] 2xl:max-[6000px]:px-[15%]">
       <div className="carousel size-full ">
         <div className="carousel-body opacity-0  h-3/4">
